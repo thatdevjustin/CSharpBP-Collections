@@ -16,15 +16,14 @@ namespace Acme.Biz
         #region Constructors
         public Product()
         {
-            var colorOptions = new List<string>() { "Red" , "Espresso", "White", "Navy" };
-
-            //colorOptions.Add("Red");
-            //colorOptions.Add("Espresso");
-            //colorOptions.Add("White");
-            //colorOptions.Add("Navy");
-            colorOptions.Insert(2, "Puple");
-            colorOptions.Remove("White");
-            Console.WriteLine(colorOptions);
+            var states = new Dictionary<string, string>();
+            states.Add("CA", "California");
+            states.Add("WA", "Washington");
+            states.Add("NY", "New York");
+            states.Add("FL", "Florida");
+            states.Add("HA", "Hawaii");
+            states.Add("WV", "West Virginia");
+            Console.WriteLine(states);
         }
         public Product(int productId,
                         string productName,
