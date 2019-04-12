@@ -75,7 +75,17 @@ namespace Acme.Biz
                     {VendorId = 8, CompanyName  = "XYZ Inc", Email = "xyz@xyz.com" }}
             };
 
-            Console.WriteLine(vendors);
+            Console.WriteLine(vendors["XYZ Inc"]);
+            if (vendors.ContainsKey("XYZ"))
+            {
+                Console.WriteLine(vendors["XYZ"]);
+            }
+
+            Vendor vendor;
+            if(vendors.TryGetValue("XYZ", out vendor))
+            {
+                Console.WriteLine(vendor);
+            }
             return vendors;
         }
 
