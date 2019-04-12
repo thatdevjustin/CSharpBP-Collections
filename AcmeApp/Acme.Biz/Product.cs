@@ -23,6 +23,10 @@ namespace Acme.Biz
             colorOptions[2] = "White";
             colorOptions[3] = "Navy";
 
+            var brownIndex = Array.IndexOf(colorOptions, "Espresso");
+
+            colorOptions.SetValue("Blue", 3);
+
             for (int i = 0; i < colorOptions.Length; i++)
             {
                 colorOptions[i] = colorOptions[i].ToLower();
