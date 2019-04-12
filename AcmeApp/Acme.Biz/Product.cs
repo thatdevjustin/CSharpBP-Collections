@@ -16,13 +16,21 @@ namespace Acme.Biz
         #region Constructors
         public Product()
         {
-            var states = new Dictionary<string, string>();
-            states.Add("CA", "California");
-            states.Add("WA", "Washington");
-            states.Add("NY", "New York");
-            states.Add("FL", "Florida");
-            states.Add("HA", "Hawaii");
-            states.Add("WV", "West Virginia");
+            var states = new Dictionary<string, string>()
+            {
+                { "CA", "California" },
+                { "WA", "Washington"},
+                { "NY", "New York" },
+                { "FL", "Florida" },
+                { "HA", "Hawaii" },
+                { "WV", "West Virginia" }
+            };
+            //states.Add("CA", "California");
+            //states.Add("WA", "Washington");
+            //states.Add("NY", "New York");
+            //states.Add("FL", "Florida");
+            //states.Add("HA", "Hawaii");
+            //states.Add("WV", "West Virginia");
             Console.WriteLine(states);
         }
         public Product(int productId,
