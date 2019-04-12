@@ -28,6 +28,19 @@ namespace Acme.Biz
             }
             return vendor;
         }
+        /// <summary>
+        /// Retrieve Generic Method
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public T RetrieveValue<T>(string sql, T defaultValue)
+        {
+            T value = defaultValue;
+
+            return defaultValue;
+        }
 
         /// <summary>
         /// Save data for one vendor.
