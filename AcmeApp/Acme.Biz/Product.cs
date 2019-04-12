@@ -16,12 +16,12 @@ namespace Acme.Biz
         #region Constructors
         public Product()
         {
-            var colorOptions = new List<string>();
+            var colorOptions = new List<string>() { "Red" , "Espresso", "White", "Navy" };
 
-            colorOptions.Add("Red");
-            colorOptions.Add("Espresso");
-            colorOptions.Add("White");
-            colorOptions.Add("Navy");
+            //colorOptions.Add("Red");
+            //colorOptions.Add("Espresso");
+            //colorOptions.Add("White");
+            //colorOptions.Add("Navy");
             colorOptions.Insert(2, "Puple");
             colorOptions.Remove("White");
             Console.WriteLine(colorOptions);
