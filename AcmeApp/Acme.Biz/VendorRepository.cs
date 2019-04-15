@@ -30,16 +30,30 @@ namespace Acme.Biz
             return vendor;
         }
         /// <summary>
-        /// 
+        /// A method that retrieves an array of vendors
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An array of Vendors</returns>
+        public Vendor[] RetrieveArray()
+        {
+            var vendors = new Vendor[2]
+            {
+                new Vendor(){VendorId = 5, CompanyName = "ABC Corp", Email = "abc@abc.com"},
+                new Vendor(){VendorId = 8, CompanyName = "XYZ Inc", Email = "xyz@xyz.com"}
+            };
+
+            return vendors;
+        }
+        /// <summary>
+        /// A method that retrieves a list of vendors
+        /// </summary>
+        /// <returns>List of Vendors</returns>
         public List<Vendor> Retrieve()
         {
             if(vendors == null)
             {
                 vendors = new List<Vendor>();
-                vendors.Add(new Vendor() { VendorId = 1, CompanyName = "ABC", Email = "abc@abc.com" });
-                vendors.Add(new Vendor() { VendorId = 2, CompanyName = "XYZ", Email = "xyz@xyz.com" });
+                vendors.Add(new Vendor() { VendorId = 1, CompanyName = "ABC Corp", Email = "abc@abc.com" });
+                vendors.Add(new Vendor() { VendorId = 2, CompanyName = "XYZ Inc", Email = "xyz@xyz.com" });
             }
             for (int i = 0; i < vendors.Count; i++)
             {
