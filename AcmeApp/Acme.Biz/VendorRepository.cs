@@ -33,7 +33,7 @@ namespace Acme.Biz
         /// A method that retrieves a list of vendors
         /// </summary>
         /// <returns>List of Vendors</returns>
-        public ICollection<Vendor> Retrieve()
+        public IEnumerable<Vendor> Retrieve()
         {
             if(vendors == null)
             {
@@ -49,6 +49,32 @@ namespace Acme.Biz
             {
                 //Console.WriteLine(vendor);
             }
+            return vendors;
+        }
+        public IEnumerable<Vendor> RetrieveAll()
+        {
+            var vendors = new List<Vendor>()
+            {
+                {new Vendor()
+                    {VendorId = 1, CompanyName = "ABC Corp", Email = "abc@abc.com"}},
+                {new Vendor()
+                    {VendorId = 2, CompanyName = "XYZ Inc", Email = "xyz@xyz.com"}},
+                {new Vendor()
+                    {VendorId = 12, CompanyName = "EFG Ltd", Email = "EFG@EFG.com"}},
+                {new Vendor()
+                    {VendorId = 17, CompanyName = "HIJ AG", Email = "HIJ@HIJ.com"}},
+                {new Vendor()
+                    {VendorId = 22, CompanyName = "Amalgamated Toys", Email = "a@abc.com"}},
+                {new Vendor()
+                    {VendorId = 28, CompanyName = "Toy Blocks Inc", Email = "blocks@abc.com"}},
+                {new Vendor()
+                    {VendorId = 31, CompanyName = "Home Products Inc", Email = "home@abc.com"}},
+                {new Vendor()
+                    {VendorId = 35, CompanyName = "Car Toys", Email = "car@abc.com"}},
+                {new Vendor()
+                    {VendorId = 42, CompanyName = "Toys for Fun", Email = "fun@abc.com"}}
+            };
+
             return vendors;
         }
         /// <summary>
@@ -80,5 +106,15 @@ namespace Acme.Biz
             return success;
         }
         
+        public IEnumerable<Vendor> RetrieveWithIterator()
+        {
+            this.Retrieve();
+
+            foreach(var vendor in vendors)
+            {
+                Console.WriteLine($"Vendor Id: {vendor.VendorId}");
+                yield return vendor;
+            }
+        }
     }
 }
