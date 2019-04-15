@@ -148,13 +148,13 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var vendorRepository = new VendorRepository();
-            var vendors = vendorRepository.Retrieve();
+            var vendorsCollection = vendorRepository.Retrieve();
             var expected = new List<string>()
             {
                 "Message sent: Important message for: ABC Corp",
                 "Message sent: Important message for: XYZ Inc"
             };
-
+            var vendors = vendorsCollection.ToList();
             //Act
             var actual = Vendor.SendEmail(vendors, "Test Message");
 
@@ -166,13 +166,13 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var vendorRepository = new VendorRepository();
-            var vendors = vendorRepository.RetrieveArray();
+            var vendorsCollection = vendorRepository.Retrieve();
             var expected = new List<string>()
             {
                 "Message sent: Important message for: ABC Corp",
                 "Message sent: Important message for: XYZ Inc"
             };
-
+            var vendors = vendorsCollection.ToArray();
             //Act
             var actual = Vendor.SendEmail(vendors, "Test Message");
 
@@ -184,12 +184,13 @@ namespace Acme.Biz.Tests
         {
             //Arrange
             var vendorRepository = new VendorRepository();
-            var vendors = vendorRepository.RetrieveWithKeys();
+            var vendorsCollection = vendorRepository.Retrieve();
             var expected = new List<string>()
             {
                 "Message sent: Important message for: ABC Corp",
                 "Message sent: Important message for: XYZ Inc"
             };
+            var vendors = vendorsCollection.ToDictionary(v => v.CompanyName);
 
             //Act
             var actual = Vendor.SendEmail(vendors.Values, "Test Message");

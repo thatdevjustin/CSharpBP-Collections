@@ -30,24 +30,10 @@ namespace Acme.Biz
             return vendor;
         }
         /// <summary>
-        /// A method that retrieves an array of vendors
-        /// </summary>
-        /// <returns>An array of Vendors</returns>
-        public Vendor[] RetrieveArray()
-        {
-            var vendors = new Vendor[2]
-            {
-                new Vendor(){VendorId = 5, CompanyName = "ABC Corp", Email = "abc@abc.com"},
-                new Vendor(){VendorId = 8, CompanyName = "XYZ Inc", Email = "xyz@xyz.com"}
-            };
-
-            return vendors;
-        }
-        /// <summary>
         /// A method that retrieves a list of vendors
         /// </summary>
         /// <returns>List of Vendors</returns>
-        public List<Vendor> Retrieve()
+        public ICollection<Vendor> Retrieve()
         {
             if(vendors == null)
             {
@@ -79,47 +65,6 @@ namespace Acme.Biz
             return defaultValue;
         }
 
-        public Dictionary<string, Vendor> RetrieveWithKeys()
-        {
-            var vendors = new Dictionary<string, Vendor>()
-            {
-                {"ABC Corp", new Vendor()
-                    {VendorId = 5, CompanyName = "ABC Corp", Email = "abc@abc.com" }},
-                {"XYZ Inc", new Vendor()
-                    {VendorId = 8, CompanyName  = "XYZ Inc", Email = "xyz@xyz.com" }}
-            };
-
-            foreach (var element in vendors)
-            {
-                var vendor = element.Value;
-                var key = element.Key;
-
-                Console.WriteLine($"Key: {key} Value: {vendor}");
-            }
-
-            //foreach (var vendor in vendors.Values)
-            //{
-            //    Console.WriteLine(vendor);
-            //}
-
-            //foreach (var companyName in vendors.Keys)
-            //{
-            //    Console.WriteLine(companyName);
-            //}
-
-            //Console.WriteLine(vendors["XYZ Inc"]);
-            //if (vendors.ContainsKey("XYZ"))
-            //{
-            //    Console.WriteLine(vendors["XYZ"]);
-            //}
-
-            //Vendor vendor;
-            //if(vendors.TryGetValue("XYZ", out vendor))
-            //{
-            //    Console.WriteLine(vendor);
-            //}
-            return vendors;
-        }
 
         /// <summary>
         /// Save data for one vendor.
